@@ -1,0 +1,69 @@
+body{
+    background-color: white;
+}
+
+h1{
+    color: #009ee0;
+    text-align: center;margin-bottom: 50px;
+}
+
+.container_mail{
+    width: 60%;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    color: #009ee0;
+}
+
+.container_mail .form{
+    width: 100%;
+    height: 30px;
+    margin: 0px 0 25px 0;
+    border: none;
+    border-color: #009ee0;
+    border-bottom:solid #009ee0 2px;
+    outline: none;
+    color: #009ee0;
+}
+.container_mail .button{
+    width: 100px;
+    height: 50px;
+    margin: 0px 0 25px 0;
+    border: none;
+    border-color: #009ee0;
+    border:solid #009ee0 2px;
+    background-color: transparent;
+    color: #009ee0;
+    font-size: 1.5em;
+    transition: all .5 ease-in-out;
+}
+.container_mail .button:hover{
+    background-color: #009ee0;
+    color: white;
+}
+.container_mail .big_text{
+    height: 150px;
+    resize: none;
+}
+
+.nav{
+    width: 100%;
+    height: 75px;
+    background-color: #009ee0;
+}
+.nav ul{
+    width: 30%;
+    margin: 0 auto;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    align-items: center;
+}
+.nav ul li a{
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+}

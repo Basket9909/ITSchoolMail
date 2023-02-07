@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Itschool - mail{% endblock %}
+
+{% block body %}
+    {% for messages in app.flashes %}
+        <div class="alert alert-success mt-4">
+        {% for message in messages %}
+            <p>{{ message | raw }}</p>
+        {% endfor %}
+        </div>
+    {% endfor %}
+    <div class="container_mail">
+        <h1>Envoyer un mail</h1>
+        {{ form(form) }}
+    </div>
+{% endblock %}

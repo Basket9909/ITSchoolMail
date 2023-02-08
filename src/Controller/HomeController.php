@@ -4,14 +4,15 @@ namespace App\Controller;
 
 use App\Entity\Mail;
 use App\Form\MailType;
-use App\Repository\MailRepository;
 use Symfony\Component\Mime\Email;
+use App\Repository\MailRepository;
 use App\Service\PaginationService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController
@@ -33,7 +34,7 @@ class HomeController extends AbstractController
             //Email
                 $email = (new Email())
                 ->from($mail->getSender())
-                ->to('romeo.wilmart@hotmail.fr')
+                ->to($mail->getRecipient())
                 ->subject($mail->getObject())
                 ->html($mail->getContent());
 
@@ -53,6 +54,7 @@ class HomeController extends AbstractController
 
 
     #[Route("/mails", name : "all_mails")]
+    #[IsGranted('ROLE_USER')]
     // #[IsGranted('ROLE_ADMIN')]
     public function mails(MailRepository $repo): Response
     {
@@ -60,6 +62,18 @@ class HomeController extends AbstractController
 
         return $this->render('mails/showall.html.twig', [
             'mails' => $mails
+        ]);
+    }
+
+
+    #[Route("/mail/{id}", name : "show_mail")]
+    #[IsGranted('ROLE_USER')]
+    // #[IsGranted('ROLE_ADMIN')]
+    public function showMails(MailRepository $repo, $id, Mail $mail): Response
+    {
+
+        return $this->render('mails/show.html.twig', [
+            'mail' => $mail
         ]);
     }
 }

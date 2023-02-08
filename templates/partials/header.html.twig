@@ -1,6 +1,11 @@
 <div class="nav">
     <ul>
-    <li><a href="#">Connexion</a></li>
+    <li><a href="{{ path('home') }}">Home</a></li>
+    {% if app.user %}
+    <li><a href="{{ path('account_logout') }}">Déconnexion</a></li>
     <li><a href="{{ path('all_mails') }}">Mails envoyés</a></li>
+    {% else %}
+    <li><a href="{{ path('account_login') }}">Connexion</a></li>
+    {% endif %}
     </ul>
 </div>

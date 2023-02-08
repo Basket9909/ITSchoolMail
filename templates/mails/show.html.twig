@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="wrapper">
+<h1>Mail n°{{mail.id}}</h1>
+
+<p>De : {{mail.sender}}</p>
+<p>À : {{mail.recipient}}</p>
+<p>Envoyé le {{mail.date | date("d/m/Y")}}</p>
+<p>Objet : {{mail.object}}<p>
+<p>Contenu : {{mail.content | raw | nl2br}}</p>
+</div>
+
+
+{% endblock %}

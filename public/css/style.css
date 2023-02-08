@@ -5,19 +5,18 @@ body{
 h1{
     color: #009ee0;
     text-align: center;margin-bottom: 50px;
+    margin-top: 20px;
 }
 
 .container_mail{
     width: 60%;
     height: auto;
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%,-50%);
+    position: relative;
     color: #009ee0;
+    margin: 0 auto;
 }
 
-.container_mail .form{
+.container_mail .form, .connexion_line .form{
     width: 100%;
     height: 30px;
     margin: 0px 0 25px 0;
@@ -27,9 +26,9 @@ h1{
     outline: none;
     color: #009ee0;
 }
-.container_mail .button{
-    width: 100px;
-    height: 50px;
+.container_mail .button, .connexion_line .button{
+    width: auto;
+    height: auto;
     margin: 0px 0 25px 0;
     border: none;
     border-color: #009ee0;
@@ -38,8 +37,9 @@ h1{
     color: #009ee0;
     font-size: 1.5em;
     transition: all .5 ease-in-out;
+    border-radius: 10px;
 }
-.container_mail .button:hover{
+.container_mail .button:hover, .connexion_line .button:hover{
     background-color: #009ee0;
     color: white;
 }
@@ -66,4 +66,15 @@ h1{
     color: white;
     font-size: 1.2em;
     text-decoration: none;
+}
+
+.wrapper{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.wrapper p{
+    font-size: 1.5em;
+    margin: 20px 0;
+
 }

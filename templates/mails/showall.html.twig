@@ -1,7 +1,41 @@
-<h1>
-test
-{% for mail in mails %}
-    {{ dump(mail) }}
-{% endfor %}
+{% extends 'base.html.twig' %}
 
-</h1>
+{% block body %}
+
+<h1>Tout les mails envoyés</h1>
+
+<div class="wrapper">
+ {% if mails %}
+<table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="text_black">Id</th>
+                    <th class="text_black">{% trans %}De{% endtrans %}</th>
+                    <th class="text_black">{% trans %}À{% endtrans %}</th>
+                    <th class="text_black">{% trans %}Objet{% endtrans %}</th>
+                    <th class="text_black">{% trans %}Date{% endtrans %}</th>
+                    <th class="text-center text_black">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+           
+                {% for mail in mails %}
+                    <tr>
+                        <td class="text_black">{{mail.id}}</td>
+                        <td class="text_black">{{mail.sender}}</td>
+                        <td class="text_black">{{mail.recipient}}</td>
+                        <td class="text_black">{{mail.object}}</td>
+                        <td class="text_black">{{mail.date |date("d/m/Y") }}</td>
+                        <td class="text-center text_black ">
+                            <a href="{{path('show_mail',{'id' : mail.id})}}" class="btn btn-warning">Voir le contenu</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <h1>Aucun mail n'a été envoyé pour le moment</h1>
+        {% endif %}
+        
+</div>
+{% endblock %}

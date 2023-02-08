@@ -16,13 +16,18 @@ class MailType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('sender', TextType::class,[
+            ->add('sender', EmailType::class,[
                 'attr' => [
                     'class' => 'form'
                 ],
                 'label' => 'Votre adresse mail'
             ])
-            // ->add('recipient', EmailType::class)
+            ->add('recipient', EmailType::class,[
+                'attr' => [
+                    'class' => 'form'
+                ],
+                'label' => 'Adresse mail du destinataire'
+            ])
             ->add('object',TextType::class,[
                 'attr' => [
                     'class' => 'form'

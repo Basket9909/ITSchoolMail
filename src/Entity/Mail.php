@@ -17,13 +17,13 @@ class Mail
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message : "Veuillez renplir ce champ")]
-    #[Assert\Email()]
+    #[Assert\Email(message : "votre adresse mail n'est pas valide")]
     private ?string $sender = null;
 
     #[ORM\Column(length: 255)]
-   
-    #[Assert\Email()]
-    private ?string $recipient = 'test@test.fr';
+    #[Assert\NotBlank(message : "Veuillez renplir ce champ")]
+    #[Assert\Email(message : "l'adresse mail n'est pas valide")]
+    private ?string $recipient = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $object = null;
